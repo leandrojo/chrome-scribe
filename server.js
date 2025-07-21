@@ -23,6 +23,10 @@ const userWavWriter = new wav.FileWriter(path.join(process.cwd(), 'user_audio.wa
   sampleRate: 48000,
   channels: 2
 });
+const screenWavWriter = new wav.FileWriter(path.join(process.cwd(), 'screen_audio.wav'), {
+  sampleRate: 48000,
+  channels: 2
+});
 const meetWavWriter = new wav.FileWriter(path.join(process.cwd(), 'meet_audio.wav'), {
   sampleRate: 48000,
   channels: 2
@@ -32,7 +36,9 @@ const wss = new WebSocketServer({ port: 8080 });
 
 wss.on('connection', (ws, request) => {
   console.log('Client connected on', request.url);
-  const writer = request.url === '/meet' ? meetWavWriter : userWavWriter;
+  let writer = userWavWriter;
+  if (request.url === '/screen') writer = screenWavWriter;
+  if (request.url === '/meet') writer = meetWavWriter;
 
   ws.on('message', message => {
     // message is a Buffer of raw PCM data
