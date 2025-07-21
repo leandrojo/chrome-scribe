@@ -1,0 +1,21 @@
+{
+  "name": "chrome-scribe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "description": "",
+  "dependencies": {
+    "@hono/node-server": "^1.17.1",
+    "hono": "^4.8.5",
+    "wav": "^1.0.2",
+    "ws": "^8.17.0"
+  }
+}
