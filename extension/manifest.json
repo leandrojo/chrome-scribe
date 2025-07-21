@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Meet Audio Capture",
+  "version": "1.0",
+  "description": "Capture tab audio and send to backend",
+  "permissions": ["tabCapture", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Capture Meet Audio"
+  }
+}
